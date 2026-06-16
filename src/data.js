@@ -50,6 +50,42 @@ export const tutorData = [
     "quiz": [
       {
         "type": "mcq",
+        "q": "Which parameter is most critical here?",
+        "options": [
+          "Learning Rate",
+          "Batch Size",
+          "Epochs",
+          "Depends on the architecture"
+        ],
+        "answer": 3,
+        "explanation": "Architecture dictates hyperparameters."
+      },
+      {
+        "type": "long",
+        "q": "What is fuzzy logic?"
+      },
+      {
+        "type": "long",
+        "q": "What is the difference between a neuron and a perceptron?"
+      },
+      {
+        "type": "long",
+        "q": "What is deep learning? What is the fundamental of machine learning?"
+      },
+      {
+        "type": "mcq",
+        "q": "What does Early Stopping prevent?",
+        "options": [
+          "Underfitting",
+          "Overfitting",
+          "Fast Training",
+          "High Learning Rate"
+        ],
+        "answer": 1,
+        "explanation": "Early stopping halts training before the model memorizes the training data (overfits)."
+      },
+      {
+        "type": "mcq",
         "q": "What is a 2D tensor commonly known as?",
         "options": [
           "Scalar",
@@ -59,6 +95,10 @@ export const tutorData = [
         ],
         "answer": 2,
         "explanation": "A 1D tensor is a vector, and a 2D tensor is a matrix."
+      },
+      {
+        "type": "long",
+        "q": "Briefly describe the concept of transfer learning in deep neural networks."
       },
       {
         "type": "mcq",
@@ -73,20 +113,20 @@ export const tutorData = [
         "explanation": "TensorFlow was developed by the Google Brain team."
       },
       {
-        "type": "long",
-        "q": "Explain the concept of Transfer Learning and why it is useful."
+        "type": "mcq",
+        "q": "Is this approach robust to overfitting?",
+        "options": [
+          "Yes, always",
+          "No, never",
+          "Yes, with proper regularization",
+          "Only with small data"
+        ],
+        "answer": 2,
+        "explanation": "Regularization is key."
       },
       {
-        "type": "mcq",
-        "q": "What does Early Stopping prevent?",
-        "options": [
-          "Underfitting",
-          "Overfitting",
-          "Fast Training",
-          "High Learning Rate"
-        ],
-        "answer": 1,
-        "explanation": "Early stopping halts training before the model memorizes the training data (overfits)."
+        "type": "long",
+        "q": "Explain the concept of Transfer Learning and why it is useful."
       }
     ]
   },
@@ -144,6 +184,38 @@ export const tutorData = [
         "explanation": "Activation functions allow neural networks to learn non-linear decision boundaries."
       },
       {
+        "type": "long",
+        "q": "Explain the Dying ReLU problem and one way to fix it."
+      },
+      {
+        "type": "mcq",
+        "q": "Is this approach robust to overfitting?",
+        "options": [
+          "Yes, always",
+          "No, never",
+          "Yes, with proper regularization",
+          "Only with small data"
+        ],
+        "answer": 2,
+        "explanation": "Regularization is key."
+      },
+      {
+        "type": "long",
+        "q": "Explain the architecture of a multi-layer perceptron (MLP) with a neat diagram."
+      },
+      {
+        "type": "mcq",
+        "q": "Which parameter is most critical here?",
+        "options": [
+          "Learning Rate",
+          "Batch Size",
+          "Epochs",
+          "Depends on the architecture"
+        ],
+        "answer": 3,
+        "explanation": "Architecture dictates hyperparameters."
+      },
+      {
         "type": "mcq",
         "q": "Which activation function is most prone to the Vanishing Gradient problem?",
         "options": [
@@ -157,7 +229,7 @@ export const tutorData = [
       },
       {
         "type": "long",
-        "q": "Explain the Dying ReLU problem and one way to fix it."
+        "q": "How are feed forward networks trained?"
       },
       {
         "type": "mcq",
@@ -170,6 +242,14 @@ export const tutorData = [
         ],
         "answer": 2,
         "explanation": "Sigmoid outputs a value between 0 and 1, perfectly mapping to a binary probability."
+      },
+      {
+        "type": "long",
+        "q": "Which loss and activation function for the output layer is best suited if the outputs are given as {1,2,3\u2026} in this form?"
+      },
+      {
+        "type": "long",
+        "q": "Say we have a neural network with 3 input neurons, 2 hidden layers each having 8 neurons, and 3 neurons at the output layer. Find the total number of biases. Find the total number of weights."
       }
     ]
   },
@@ -228,15 +308,31 @@ export const tutorData = [
     "quiz": [
       {
         "type": "mcq",
-        "q": "Which optimization algorithm combines both Momentum and RMSprop?",
+        "q": "Which parameter is most critical here?",
         "options": [
-          "Adagrad",
-          "SGD",
-          "Adam",
-          "Nesterov"
+          "Learning Rate",
+          "Batch Size",
+          "Epochs",
+          "Depends on the architecture"
         ],
-        "answer": 2,
-        "explanation": "Adam (Adaptive Moment Estimation) combines the first and second moments of gradients."
+        "answer": 3,
+        "explanation": "Architecture dictates hyperparameters."
+      },
+      {
+        "type": "long",
+        "q": "Why is empirical risk minimization prone to overfitting? What is underfitting?"
+      },
+      {
+        "type": "mcq",
+        "q": "What is an Epoch?",
+        "options": [
+          "One forward pass of one batch",
+          "One full pass of the entire dataset",
+          "The time taken to train the network",
+          "A type of activation function"
+        ],
+        "answer": 1,
+        "explanation": "An epoch represents one complete cycle through the full training dataset."
       },
       {
         "type": "mcq",
@@ -255,16 +351,40 @@ export const tutorData = [
         "q": "Explain the difference between L1 and L2 Regularization."
       },
       {
+        "type": "long",
+        "q": "What is a learning rate? How is the learning rate important in training deep neural networks? Explain learning rate scheduling."
+      },
+      {
+        "type": "long",
+        "q": "Discuss different optimization algorithms: Momentum, RMSprop, and Adam. Compare their update rules and explain the advantages of Adam."
+      },
+      {
+        "type": "long",
+        "q": "What is Batch Normalization? Explain the mathematical operations involved during the forward pass."
+      },
+      {
         "type": "mcq",
-        "q": "What is an Epoch?",
+        "q": "Is this approach robust to overfitting?",
         "options": [
-          "One forward pass of one batch",
-          "One full pass of the entire dataset",
-          "The time taken to train the network",
-          "A type of activation function"
+          "Yes, always",
+          "No, never",
+          "Yes, with proper regularization",
+          "Only with small data"
         ],
-        "answer": 1,
-        "explanation": "An epoch represents one complete cycle through the full training dataset."
+        "answer": 2,
+        "explanation": "Regularization is key."
+      },
+      {
+        "type": "mcq",
+        "q": "Which optimization algorithm combines both Momentum and RMSprop?",
+        "options": [
+          "Adagrad",
+          "SGD",
+          "Adam",
+          "Nesterov"
+        ],
+        "answer": 2,
+        "explanation": "Adam (Adaptive Moment Estimation) combines the first and second moments of gradients."
       }
     ]
   },
@@ -335,15 +455,19 @@ export const tutorData = [
     "quiz": [
       {
         "type": "mcq",
-        "q": "What does a pooling layer primarily do?",
+        "q": "Is this approach robust to overfitting?",
         "options": [
-          "Increases image size",
-          "Reduces spatial dimensions",
-          "Adds color channels",
-          "Normalizes weights"
+          "Yes, always",
+          "No, never",
+          "Yes, with proper regularization",
+          "Only with small data"
         ],
-        "answer": 1,
-        "explanation": "Pooling layers downsample the image, reducing its height and width."
+        "answer": 2,
+        "explanation": "Regularization is key."
+      },
+      {
+        "type": "long",
+        "q": "Stride and number of filters are treated as hyperparameters True or False?"
       },
       {
         "type": "mcq",
@@ -359,7 +483,23 @@ export const tutorData = [
       },
       {
         "type": "long",
-        "q": "Explain the difference between Max Pooling and Average Pooling."
+        "q": "Mention one difference between RNN and CNN."
+      },
+      {
+        "type": "long",
+        "q": "What is the dimension of the output if a 3x3 filter is applied to a 5x5 input image without padding?"
+      },
+      {
+        "type": "mcq",
+        "q": "Which parameter is most critical here?",
+        "options": [
+          "Learning Rate",
+          "Batch Size",
+          "Epochs",
+          "Depends on the architecture"
+        ],
+        "answer": 3,
+        "explanation": "Architecture dictates hyperparameters."
       },
       {
         "type": "mcq",
@@ -372,6 +512,26 @@ export const tutorData = [
         ],
         "answer": 2,
         "explanation": "LSTM is a type of Recurrent Neural Network, not a CNN."
+      },
+      {
+        "type": "long",
+        "q": "Discuss the role of padding and stride in convolutional neural networks."
+      },
+      {
+        "type": "long",
+        "q": "Explain the difference between Max Pooling and Average Pooling."
+      },
+      {
+        "type": "mcq",
+        "q": "What does a pooling layer primarily do?",
+        "options": [
+          "Increases image size",
+          "Reduces spatial dimensions",
+          "Adds color channels",
+          "Normalizes weights"
+        ],
+        "answer": 1,
+        "explanation": "Pooling layers downsample the image, reducing its height and width."
       }
     ]
   },
@@ -434,6 +594,58 @@ export const tutorData = [
     "quiz": [
       {
         "type": "mcq",
+        "q": "What is the Viterbi Algorithm used for in HMMs?",
+        "options": [
+          "Parameter Learning",
+          "Likelihood Computation",
+          "Decoding the hidden sequence",
+          "Calculating Loss"
+        ],
+        "answer": 2,
+        "explanation": "Viterbi is used for decoding the most probable hidden state sequence."
+      },
+      {
+        "type": "long",
+        "q": "How you can manage the vanishing gradient problem in deep network? Suggest one network which can help you to prevent the same."
+      },
+      {
+        "type": "long",
+        "q": "Does RNN have memory cell? Justify."
+      },
+      {
+        "type": "long",
+        "q": "Explain how the Attention Mechanism improves standard Seq2Seq models."
+      },
+      {
+        "type": "mcq",
+        "q": "Which parameter is most critical here?",
+        "options": [
+          "Learning Rate",
+          "Batch Size",
+          "Epochs",
+          "Depends on the architecture"
+        ],
+        "answer": 3,
+        "explanation": "Architecture dictates hyperparameters."
+      },
+      {
+        "type": "mcq",
+        "q": "Is this approach robust to overfitting?",
+        "options": [
+          "Yes, always",
+          "No, never",
+          "Yes, with proper regularization",
+          "Only with small data"
+        ],
+        "answer": 2,
+        "explanation": "Regularization is key."
+      },
+      {
+        "type": "long",
+        "q": "What is a Gated Recurrent Unit (GRU)? Detail the working mechanism of a GRU cell. How does it compare to an LSTM cell?"
+      },
+      {
+        "type": "mcq",
         "q": "Which gate is NOT part of a standard LSTM cell?",
         "options": [
           "Input Gate",
@@ -443,6 +655,10 @@ export const tutorData = [
         ],
         "answer": 2,
         "explanation": "The Update Gate is used in a GRU, not an LSTM."
+      },
+      {
+        "type": "long",
+        "q": "Write down the equations for forward propagation in a simple RNN."
       },
       {
         "type": "mcq",
@@ -455,22 +671,6 @@ export const tutorData = [
         ],
         "answer": 3,
         "explanation": "Repeated multiplication of weights over time steps leads to vanishing or exploding gradients."
-      },
-      {
-        "type": "long",
-        "q": "Explain how the Attention Mechanism improves standard Seq2Seq models."
-      },
-      {
-        "type": "mcq",
-        "q": "What is the Viterbi Algorithm used for in HMMs?",
-        "options": [
-          "Parameter Learning",
-          "Likelihood Computation",
-          "Decoding the hidden sequence",
-          "Calculating Loss"
-        ],
-        "answer": 2,
-        "explanation": "Viterbi is used for decoding the most probable hidden state sequence."
       }
     ]
   },
@@ -521,6 +721,34 @@ export const tutorData = [
     "quiz": [
       {
         "type": "mcq",
+        "q": "Is this approach robust to overfitting?",
+        "options": [
+          "Yes, always",
+          "No, never",
+          "Yes, with proper regularization",
+          "Only with small data"
+        ],
+        "answer": 2,
+        "explanation": "Regularization is key."
+      },
+      {
+        "type": "long",
+        "q": "What is the significance of the BLEU score?"
+      },
+      {
+        "type": "mcq",
+        "q": "Which parameter is most critical here?",
+        "options": [
+          "Learning Rate",
+          "Batch Size",
+          "Epochs",
+          "Depends on the architecture"
+        ],
+        "answer": 3,
+        "explanation": "Architecture dictates hyperparameters."
+      },
+      {
+        "type": "mcq",
         "q": "Which model consists of a Generator and a Discriminator?",
         "options": [
           "Autoencoder",
@@ -544,10 +772,6 @@ export const tutorData = [
         "explanation": "Stemming chops off prefixes/suffixes to group related words together."
       },
       {
-        "type": "long",
-        "q": "Explain how the Self-Attention mechanism in Transformers works."
-      },
-      {
         "type": "mcq",
         "q": "What does a Discriminative model do?",
         "options": [
@@ -558,6 +782,22 @@ export const tutorData = [
         ],
         "answer": 1,
         "explanation": "Discriminative models draw a decision boundary to classify data."
+      },
+      {
+        "type": "long",
+        "q": "Describe the Word2Vec model. Explain the CBOW and Skip-gram architectures briefly."
+      },
+      {
+        "type": "long",
+        "q": "Explain how the Self-Attention mechanism in Transformers works."
+      },
+      {
+        "type": "long",
+        "q": "What is the difference between Generative and Discriminative models with examples?"
+      },
+      {
+        "type": "long",
+        "q": "Write short notes on Generative Adversarial Networks (GANs). Explain the mathematical intuition behind the GAN loss function."
       }
     ]
   }

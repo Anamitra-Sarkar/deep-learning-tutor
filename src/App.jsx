@@ -5,18 +5,16 @@ import { tutorData } from './data';
 
 const NeuralNetworkVisualizer = () => {
   const [layers, setLayers] = useState([3, 4, 3]);
-  const [learningRate, setLearningRate] = useState(0.01);
-  const [weights, setWeights] = useState({});
 
-  const layerPositions = [15, 50, 85];
-  
+  const layerPositions = [20, 75, 130];
+
   const renderNeurons = (layerIndex) => {
     const numNeurons = layers[layerIndex];
     const x = layerPositions[layerIndex];
     const yPositions = [];
     
     for (let i = 0; i < numNeurons; i++) {
-      const y = 50 + (i * 12) - ((numNeurons - 1) * 6);
+      const y = 60 + (i * 15) - ((numNeurons - 1) * 7.5);
       yPositions.push({ x, y });
     }
     return yPositions;
@@ -27,41 +25,32 @@ const NeuralNetworkVisualizer = () => {
       <h4 className="text-xl font-bold text-slate-800 mb-2 text-center">Interactive Neural Network Architecture</h4>
       <p className="text-sm text-slate-500 mb-6 text-center">Adjust the number of neurons in each layer to see the network structure.</p>
 
-      <div className="flex justify-center mb-6">
-        <svg viewBox="0 0 100 150" className="w-full max-w-sm bg-slate-50 rounded-lg border border-slate-100 shadow-inner">
+      <div className="flex justify-center mb-6 overflow-visible">
+        <svg viewBox="0 0 150 160" className="w-full max-w-sm bg-slate-50 rounded-lg border border-slate-100 shadow-inner overflow-visible">
           {/* Input Layer */}
-          <text x="15" y="25" className="text-[10px] font-bold fill-slate-600">Input Layer</text>
+          <text x="20" y="25" textAnchor="middle" className="text-[10px] font-bold fill-slate-600">Input</text>
           {renderNeurons(0).map((neuron, idx) => (
-            <circle key={`in-${idx}`} cx={neuron.x} cy={neuron.y} r={3} fill="#3b82f6" />
+            <circle key={`in-${idx}`} cx={neuron.x} cy={neuron.y} r={4} fill="#3b82f6" />
           ))}
 
           {/* Hidden Layer 1 */}
-          <text x="50" y="25" className="text-[10px] font-bold fill-slate-600">Hidden Layer 1</text>
+          <text x="75" y="25" textAnchor="middle" className="text-[10px] font-bold fill-slate-600">Hidden</text>
           {renderNeurons(1).map((neuron, idx) => (
-            <circle key={`h1-${idx}`} cx={neuron.x} cy={neuron.y} r={3} fill="#10b981" />
-          ))}
-
-          {/* Hidden Layer 2 */}
-          <text x="85" y="25" className="text-[10px] font-bold fill-slate-600">Hidden Layer 2</text>
-          {renderNeurons(2).map((neuron, idx) => (
-            <circle key={`h2-${idx}`} cx={neuron.x} cy={neuron.y} r={3} fill="#f59e0b" />
+            <circle key={`h1-${idx}`} cx={neuron.x} cy={neuron.y} r={4} fill="#10b981" />
           ))}
 
           {/* Output Layer */}
-          <text x="15" y="135" className="text-[10px] font-bold fill-slate-600">Output Layer</text>
+          <text x="130" y="25" textAnchor="middle" className="text-[10px] font-bold fill-slate-600">Output</text>
           {renderNeurons(2).map((neuron, idx) => (
-            <circle key={`out-${idx}`} cx={neuron.x} cy={neuron.y} r={3} fill="#ef4444" />
+            <circle key={`out-${idx}`} cx={neuron.x} cy={neuron.y} r={4} fill="#ef4444" />
           ))}
 
           {/* Connections (simplified) */}
           {renderNeurons(0).map((n1, i) => renderNeurons(1).map((n2, j) => (
-            <line key={`c1-${i}-${j}`} x1={n1.x} y1={n1.y} x2={n2.x} y2={n2.y} stroke="#cbd5e1" strokeWidth="0.3" />
+            <line key={`c1-${i}-${j}`} x1={n1.x} y1={n1.y} x2={n2.x} y2={n2.y} stroke="#cbd5e1" strokeWidth="0.5" />
           )))}
           {renderNeurons(1).map((n1, i) => renderNeurons(2).map((n2, j) => (
-            <line key={`c2-${i}-${j}`} x1={n1.x} y1={n1.y} x2={n2.x} y2={n2.y} stroke="#cbd5e1" strokeWidth="0.3" />
-          )))}
-          {renderNeurons(2).map((n1, i) => renderNeurons(2).map((n2, j) => (
-            <line key={`c3-${i}-${j}`} x1={n1.x} y1={n1.y} x2={n2.x} y2={n2.y} stroke="#cbd5e1" strokeWidth="0.3" />
+            <line key={`c2-${i}-${j}`} x1={n1.x} y1={n1.y} x2={n2.x} y2={n2.y} stroke="#cbd5e1" strokeWidth="0.5" />
           )))}
         </svg>
       </div>
@@ -70,7 +59,7 @@ const NeuralNetworkVisualizer = () => {
         {layers.map((count, idx) => (
           <div key={idx} className="flex flex-col items-center">
             <label className="text-xs font-bold text-slate-600 mb-1">
-              Layer {idx + 1}: {count} neurons
+              {idx === 0 ? 'Input' : idx === 1 ? 'Hidden' : 'Output'} Layer: {count}
             </label>
             <input
               type="range"
@@ -664,88 +653,86 @@ const QuizComponent = ({ quizData }) => {
       </h3>
       
       <div className="space-y-8">
-        {/* Render MCQs */}
+        {/* Render All Questions */}
         {randomizedQuiz.map((qObj, rawIdx) => {
-          if (qObj.type === 'long') return null;
-          return (
-          <div key={rawIdx} className="bg-white p-5 rounded-lg shadow-sm border border-slate-100">
-            <p className="font-semibold text-slate-800 mb-4 text-lg">{rawIdx + 1}. {qObj.q}</p>
-            <div className="space-y-2">
-              {qObj.options.map((opt, oIdx) => {
-                const isSelected = selectedAnswers[rawIdx] === oIdx;
-                const isCorrect = oIdx === qObj.answer;
+          if (qObj.type === 'long') {
+            const fb = longFeedback[rawIdx];
+            return (
+              <div key={rawIdx} className="bg-white p-5 rounded-lg shadow-sm border border-slate-100">
+                <p className="font-semibold text-slate-800 mb-4 text-lg">{rawIdx + 1}. [Subjective] {qObj.q}</p>
+                <textarea
+                  className="w-full border border-slate-300 rounded-lg p-3 text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-700 min-h-[100px]"
+                  placeholder="Type your exam answer here..."
+                  value={longAnswers[rawIdx] || ''}
+                  onChange={(e) => handleLongText(rawIdx, e.target.value)}
+                />
                 
-                let btnClass = "w-full text-left px-4 py-3 rounded-md border transition-all duration-200 ";
+                <button 
+                  onClick={() => evaluateLongAnswer(rawIdx, qObj.q, longAnswers[rawIdx])}
+                  disabled={!longAnswers[rawIdx] || (fb && fb.loading)}
+                  className="mt-3 bg-slate-800 text-white px-4 py-2 rounded-md hover:bg-slate-700 transition-colors disabled:opacity-50 flex items-center gap-2"
+                >
+                  {fb && fb.loading ? (
+                    <><div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div> Grading Answer...</>
+                  ) : (
+                    <><svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> Evaluate Answer</>
+                  )}
+                </button>
+
+                {fb && fb.feedback && (
+                  <div className="mt-4 p-4 bg-slate-100 border border-blue-100 rounded-md text-sm text-blue-900 leading-relaxed">
+                    <span className="font-bold block mb-1">👨‍🏫 Professor Feedback:</span>
+                    <span dangerouslySetInnerHTML={{ __html: fb.feedback.replace(/\n/g, '<br />').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }} />
+                  </div>
+                )}
+              </div>
+            );
+          } else {
+            return (
+              <div key={rawIdx} className="bg-white p-5 rounded-lg shadow-sm border border-slate-100">
+                <p className="font-semibold text-slate-800 mb-4 text-lg">{rawIdx + 1}. {qObj.q}</p>
+                <div className="space-y-2">
+                  {qObj.options && qObj.options.map((opt, oIdx) => {
+                    const isSelected = selectedAnswers[rawIdx] === oIdx;
+                    const isCorrect = oIdx === qObj.answer;
+                    
+                    let btnClass = "w-full text-left px-4 py-3 rounded-md border transition-all duration-200 ";
+                    
+                    if (!showResults) {
+                      btnClass += isSelected ? "bg-slate-100 border-blue-700 text-blue-900 font-medium" : "bg-white border-slate-200 hover:bg-slate-50 text-slate-700";
+                    } else {
+                      if (isCorrect) {
+                        btnClass += "bg-emerald-50 border-emerald-500 text-emerald-700 font-medium";
+                      } else if (isSelected && !isCorrect) {
+                        btnClass += "bg-red-50 border-red-500 text-red-700 font-medium";
+                      } else {
+                        btnClass += "bg-white border-slate-200 text-slate-400 opacity-60";
+                      }
+                    }
+
+                    return (
+                      <button 
+                        key={oIdx} 
+                        onClick={() => handleSelect(rawIdx, oIdx)}
+                        className={btnClass}
+                        disabled={showResults}
+                      >
+                        {String.fromCharCode(65 + oIdx)}. {opt}
+                      </button>
+                    );
+                  })}
+                </div>
                 
-                if (!showResults) {
-                  btnClass += isSelected ? "bg-slate-100 border-blue-700 text-blue-900 font-medium" : "bg-white border-slate-200 hover:bg-slate-50 text-slate-700";
-                } else {
-                  if (isCorrect) {
-                    btnClass += "bg-emerald-50 border-emerald-500 text-emerald-700 font-medium";
-                  } else if (isSelected && !isCorrect) {
-                    btnClass += "bg-red-50 border-red-500 text-red-700 font-medium";
-                  } else {
-                    btnClass += "bg-white border-slate-200 text-slate-400 opacity-60";
-                  }
-                }
-
-                return (
-                  <button 
-                    key={oIdx} 
-                    onClick={() => handleSelect(rawIdx, oIdx)}
-                    className={btnClass}
-                    disabled={showResults}
-                  >
-                    {String.fromCharCode(65 + oIdx)}. {opt}
-                  </button>
-                );
-              })}
-            </div>
-            
-            {showResults && (
-              <div className={`mt-4 p-4 rounded-md text-sm ${selectedAnswers[rawIdx] === qObj.answer ? "bg-emerald-50 text-emerald-800 border border-emerald-200" : "bg-red-50 text-red-800 border border-red-200"}`}>
-                <span className="font-bold mr-2">{selectedAnswers[rawIdx] === qObj.answer ? "✓ Correct!" : "✗ Incorrect."}</span>
-                {qObj.explanation}
+                {showResults && (
+                  <div className={`mt-4 p-4 rounded-md text-sm ${selectedAnswers[rawIdx] === qObj.answer ? "bg-emerald-50 text-emerald-800 border border-emerald-200" : "bg-red-50 text-red-800 border border-red-200"}`}>
+                    <span className="font-bold mr-2">{selectedAnswers[rawIdx] === qObj.answer ? "✓ Correct!" : "✗ Incorrect."}</span>
+                    {qObj.explanation}
+                  </div>
+                )}
               </div>
-            )}
-          </div>
-        )})}
-
-        {/* Render Long Questions */}
-        {randomizedQuiz.map((qObj, rawIdx) => {
-          if (qObj.type !== 'long') return null;
-          const fb = longFeedback[rawIdx];
-          
-          return (
-          <div key={rawIdx} className="bg-white p-5 rounded-lg shadow-sm border border-slate-100">
-            <p className="font-semibold text-slate-800 mb-4 text-lg">{rawIdx + 1}. [Subjective] {qObj.q}</p>
-            <textarea
-              className="w-full border border-slate-300 rounded-lg p-3 text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-700 min-h-[100px]"
-              placeholder="Type your exam answer here..."
-              value={longAnswers[rawIdx] || ''}
-              onChange={(e) => handleLongText(rawIdx, e.target.value)}
-            />
-            
-            <button 
-              onClick={() => evaluateLongAnswer(rawIdx, qObj.q, longAnswers[rawIdx])}
-              disabled={!longAnswers[rawIdx] || (fb && fb.loading)}
-              className="mt-3 bg-slate-800 text-white px-4 py-2 rounded-md hover:bg-slate-700 transition-colors disabled:opacity-50 flex items-center gap-2"
-            >
-              {fb && fb.loading ? (
-                <><div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div> Grading Answer...</>
-              ) : (
-                <><svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> Evaluate Answer</>
-              )}
-            </button>
-
-            {fb && fb.feedback && (
-              <div className="mt-4 p-4 bg-slate-100 border border-blue-100 rounded-md text-sm text-blue-900 leading-relaxed">
-                <span className="font-bold block mb-1">👨‍🏫 Professor Feedback:</span>
-                <span dangerouslySetInnerHTML={{ __html: fb.feedback.replace(/\n/g, '<br />').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }} />
-              </div>
-            )}
-          </div>
-        )})}
+            );
+          }
+        })}
       </div>
 
       {!showResults && Object.keys(selectedAnswers).length === mcqQuestions.length && mcqQuestions.length > 0 && (
