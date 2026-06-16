@@ -606,7 +606,7 @@ const QuizComponent = ({ quizData }) => {
 
     try {
       const systemMessage = {
-        role: 'system',
+        role: 'user',
         content: `You are a strict but fair university professor grading a 3rd-semester student's answer for a Deep Learning exam.
         Question: "${question}"
         Student's Answer: "${userAnswer}"
