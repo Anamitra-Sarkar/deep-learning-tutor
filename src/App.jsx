@@ -488,14 +488,14 @@ ${contextText}`
 
       const apiMessages = [systemMessage, ...newMessages.map(m => ({ role: m.role, content: m.content }))];
 
-      const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+      const response = await fetch('https://open.bigmodel.cn/api/paas/v4/chat/completions', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer __GROQ_API_KEY__'
+          'Authorization': 'Bearer __ZHIPU_API_KEY__'
         },
         body: JSON.stringify({
-          model: 'llama-3.3-70b-versatile',
+          model: 'glm-4-flash',
           messages: apiMessages,
           temperature: 0.7,
         })
@@ -636,7 +636,7 @@ const QuizComponent = ({ quizData }) => {
           'Authorization': 'Bearer __ZHIPU_API_KEY__'
         },
         body: JSON.stringify({
-          model: 'glm-4',
+          model: 'glm-4-flash',
           messages: [systemMessage],
           temperature: 0.3,
         })
