@@ -495,7 +495,7 @@ ${contextText}`
           'Authorization': 'Bearer __ZHIPU_API_KEY__'
         },
         body: JSON.stringify({
-          model: 'glm-4.7-flash',
+          model: 'GLM-4.7-Flash',
           messages: apiMessages,
           temperature: 0.7,
         })
@@ -636,7 +636,7 @@ const QuizComponent = ({ quizData }) => {
           'Authorization': 'Bearer __ZHIPU_API_KEY__'
         },
         body: JSON.stringify({
-          model: 'glm-4.7-flash',
+          model: 'GLM-4.7-Flash',
           messages: [systemMessage],
           temperature: 0.3,
         })
