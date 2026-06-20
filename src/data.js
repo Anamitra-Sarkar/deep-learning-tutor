@@ -8,7 +8,7 @@ export const tutorData = [
     "examQuestions": [
       {
         "q": "What is deep learning? What is the fundamental of machine learning?",
-        "a": "**Answer:**\\n**Machine Learning Fundamental:** The ability of an algorithm to learn patterns from data and improve its performance on a specific task without being explicitly programmed.\\n**Deep Learning:** A specialized subset of ML that uses deep Artificial Neural Networks (networks with multiple hidden layers) to automatically discover complex, hierarchical representations from raw data (like pixels or text)."
+        "a": "**Answer:**\n**Machine Learning Fundamental:** The ability of an algorithm to learn patterns from data and improve its performance on a specific task without being explicitly programmed.\n**Deep Learning:** A specialized subset of ML that uses deep Artificial Neural Networks (networks with multiple hidden layers) to automatically discover complex, hierarchical representations from raw data (like pixels or text)."
       },
       {
         "q": "What is meant by artificial neural network?",
@@ -32,7 +32,7 @@ export const tutorData = [
       },
       {
         "q": "Define early stopping. What is weight decay?",
-        "a": "**Answer:**\\n**Early Stopping:** A regularization technique where training is halted as soon as the model's performance on a validation dataset starts to degrade, preventing overfitting.\\n**Weight Decay:** Another term for L2 Regularization. It continually decays the weights by a small factor during training to penalize large weights and keep the model simple."
+        "a": "**Answer:**\n**Early Stopping:** A regularization technique where training is halted as soon as the model's performance on a validation dataset starts to degrade, preventing overfitting.\n**Weight Decay:** Another term for L2 Regularization. It continually decays the weights by a small factor during training to penalize large weights and keep the model simple."
       },
       {
         "q": "What is fuzzy logic?",
@@ -40,7 +40,7 @@ export const tutorData = [
       },
       {
         "q": "Which one is better Lasso or ridge? Give reason.",
-        "a": "**Answer:** Neither is universally 'better'; it depends on the problem.\\n**Lasso (L1)** is better when you want *feature selection* because it drives unimportant weights to exactly zero, resulting in a simpler, sparse model.\\n**Ridge (L2)** is better when all features are somewhat relevant and you just want to prevent any single feature from dominating, as it shrinks weights evenly but rarely to zero."
+        "a": "**Answer:** Neither is universally 'better'; it depends on the problem.\n**Lasso (L1)** is better when you want *feature selection* because it drives unimportant weights to exactly zero, resulting in a simpler, sparse model.\n**Ridge (L2)** is better when all features are somewhat relevant and you just want to prevent any single feature from dominating, as it shrinks weights evenly but rarely to zero."
       },
       {
         "q": "What does high entropy mean for classification?",
@@ -143,19 +143,19 @@ export const tutorData = [
       },
       {
         "q": "Explain the architecture of a multi-layer perceptron (MLP) with a neat diagram.",
-        "a": "**Answer:** An MLP consists of:\\n1. **Input Layer:** Receives the feature vector.\\n2. **Hidden Layer(s):** Dense interconnected layers where each neuron applies a linear transformation ($W \\cdot x + b$) followed by a non-linear activation function.\\n3. **Output Layer:** Produces the final prediction (e.g., using Softmax for classification).\\n*(Diagram: Imagine three columns of nodes, with lines connecting every node in one column to every node in the next.)*"
+        "a": "**Answer:** An MLP consists of:\n1. **Input Layer:** Receives the feature vector.\n2. **Hidden Layer(s):** Dense interconnected layers where each neuron applies a linear transformation ($W \\cdot x + b$) followed by a non-linear activation function.\n3. **Output Layer:** Produces the final prediction (e.g., using Softmax for classification).\n*(Diagram: Imagine three columns of nodes, with lines connecting every node in one column to every node in the next.)*"
       },
       {
         "q": "Why do neural networks need an activation function? Explain the different type of activation functions. How to choose the right activation function?",
-        "a": "**Answer:** Activation functions introduce **non-linearity**. Without them, a deep neural network would mathematically collapse into a single linear regression model, incapable of solving complex tasks.\\n**Types:**\\n1. **Sigmoid:** Maps input to [0,1]. Used in binary classification output. (Prone to vanishing gradient).\\n2. **Tanh:** Maps input to [-1,1]. Zero-centered.\\n3. **ReLU (Rectified Linear Unit):** Maps negative inputs to 0, and keeps positive inputs as is ($max(0,x)$). Fast and prevents vanishing gradients.\\n**Choosing:** Use ReLU for hidden layers. Use Sigmoid for binary output, and Softmax for multi-class output."
+        "a": "**Answer:** Activation functions introduce **non-linearity**. Without them, a deep neural network would mathematically collapse into a single linear regression model, incapable of solving complex tasks.\n**Types:**\n1. **Sigmoid:** Maps input to [0,1]. Used in binary classification output. (Prone to vanishing gradient).\n2. **Tanh:** Maps input to [-1,1]. Zero-centered.\n3. **ReLU (Rectified Linear Unit):** Maps negative inputs to 0, and keeps positive inputs as is ($max(0,x)$). Fast and prevents vanishing gradients.\n**Choosing:** Use ReLU for hidden layers. Use Sigmoid for binary output, and Softmax for multi-class output."
       },
       {
         "q": "What is the equation for the Sigmoid activation function? What is the range of tanh activation function?",
-        "a": "**Answer:**\\n- **Sigmoid Equation:** $\\sigma(x) = \\frac{1}{1 + e^{-x}}$\\n- **Tanh Range:** The range is **[-1, 1]**."
+        "a": "**Answer:**\n- **Sigmoid Equation:** $\\sigma(x) = \\frac{1}{1 + e^{-x}}$\n- **Tanh Range:** The range is **[-1, 1]**."
       },
       {
         "q": "Explain the problem of 'Dying ReLU' and how Leaky ReLU addresses it.",
-        "a": "**Answer:** **Dying ReLU:** Because standard ReLU outputs exactly $0$ for all negative inputs, neurons can become 'dead' if their weights update in a way that always produces negative inputs. They stop passing gradients, permanently halting learning.\\n**Leaky ReLU:** Fixes this by having a small, non-zero slope for negative values (e.g., $f(x) = 0.01x$ for $x<0$), ensuring a tiny gradient always flows backward."
+        "a": "**Answer:** **Dying ReLU:** Because standard ReLU outputs exactly $0$ for all negative inputs, neurons can become 'dead' if their weights update in a way that always produces negative inputs. They stop passing gradients, permanently halting learning.\n**Leaky ReLU:** Fixes this by having a small, non-zero slope for negative values (e.g., $f(x) = 0.01x$ for $x<0$), ensuring a tiny gradient always flows backward."
       },
       {
         "q": "Why ReLU activation function leads to sparse activation maps?",
@@ -163,7 +163,7 @@ export const tutorData = [
       },
       {
         "q": "Say we have a neural network with 3 input neurons, 2 hidden layers each having 8 neurons, and 3 neurons at the output layer. Find the total number of biases. Find the total number of weights.",
-        "a": "**Answer:**\\n- **Weights:** (Input to H1) $3 \\times 8 = 24$. (H1 to H2) $8 \\times 8 = 64$. (H2 to Output) $8 \\times 3 = 24$. Total = $24 + 64 + 24 = 112$.\\n- **Biases:** One for each neuron in the hidden and output layers. $8 (H1) + 8 (H2) + 3 (Out) = 19$.\\n- **Total Parameters:** $112 + 19 = 131$."
+        "a": "**Answer:**\n- **Weights:** (Input to H1) $3 \\times 8 = 24$. (H1 to H2) $8 \\times 8 = 64$. (H2 to Output) $8 \\times 3 = 24$. Total = $24 + 64 + 24 = 112$.\n- **Biases:** One for each neuron in the hidden and output layers. $8 (H1) + 8 (H2) + 3 (Out) = 19$.\n- **Total Parameters:** $112 + 19 = 131$."
       },
       {
         "q": "Which loss and activation function for the output layer is best suited if the outputs are given as {1,2,3\u2026} in this form?",
@@ -262,19 +262,19 @@ export const tutorData = [
     "examQuestions": [
       {
         "q": "What is Gradient Descent? Explain Stochastic Gradient Descent (SGD) and Mini-batch Gradient Descent.",
-        "a": "**Answer:**\\n**Gradient Descent (GD):** An optimization algorithm used to minimize the loss function by iteratively updating weights in the opposite direction of the gradient.\\n**SGD:** Updates weights after evaluating a *single* training example. Very noisy but fast.\\n**Mini-batch GD:** A compromise between Full Batch GD and SGD. It updates weights after evaluating a small batch (e.g., 32 or 64) of examples, offering stability and computational efficiency."
+        "a": "**Answer:**\n**Gradient Descent (GD):** An optimization algorithm used to minimize the loss function by iteratively updating weights in the opposite direction of the gradient.\n**SGD:** Updates weights after evaluating a *single* training example. Very noisy but fast.\n**Mini-batch GD:** A compromise between Full Batch GD and SGD. It updates weights after evaluating a small batch (e.g., 32 or 64) of examples, offering stability and computational efficiency."
       },
       {
         "q": "What is back propagation in deep learning? What are the steps in the back propagation learning algorithm?",
-        "a": "**Answer:** Backpropagation computes the gradient of the loss function with respect to every weight in the network by applying the chain rule of calculus backward from the output layer to the input layer.\\n**Steps:**\\n1. **Forward Pass:** Compute network predictions and calculate the loss.\\n2. **Compute Gradients:** Calculate the error derivative at the output layer.\\n3. **Backward Pass:** Propagate the error backward to compute gradients for all hidden layers.\\n4. **Weight Update:** Adjust the weights using an optimization algorithm (like Gradient Descent)."
+        "a": "**Answer:** Backpropagation computes the gradient of the loss function with respect to every weight in the network by applying the chain rule of calculus backward from the output layer to the input layer.\n**Steps:**\n1. **Forward Pass:** Compute network predictions and calculate the loss.\n2. **Compute Gradients:** Calculate the error derivative at the output layer.\n3. **Backward Pass:** Propagate the error backward to compute gradients for all hidden layers.\n4. **Weight Update:** Adjust the weights using an optimization algorithm (like Gradient Descent)."
       },
       {
         "q": "What is a learning rate? How is the learning rate important in training deep neural networks? Explain learning rate scheduling.",
-        "a": "**Answer:** **Learning Rate ($\\alpha$):** A hyperparameter that controls the step size at each iteration while moving toward a minimum of a loss function.\\n**Importance:** If too large, the model might overshoot the minimum and fail to converge. If too small, training will be painfully slow and might get stuck in local minima.\\n**Scheduling:** Dynamically reducing the learning rate during training (e.g., Step Decay or Exponential Decay) helps the model converge smoothly as it gets closer to the minimum."
+        "a": "**Answer:** **Learning Rate ($\\alpha$):** A hyperparameter that controls the step size at each iteration while moving toward a minimum of a loss function.\n**Importance:** If too large, the model might overshoot the minimum and fail to converge. If too small, training will be painfully slow and might get stuck in local minima.\n**Scheduling:** Dynamically reducing the learning rate during training (e.g., Step Decay or Exponential Decay) helps the model converge smoothly as it gets closer to the minimum."
       },
       {
         "q": "What is the difference between epoch and batch size?",
-        "a": "**Answer:**\\n**Epoch:** One complete forward and backward pass of the *entire* training dataset through the neural network.\\n**Batch Size:** The number of training examples utilized in one iteration to compute the gradients and update the weights."
+        "a": "**Answer:**\n**Epoch:** One complete forward and backward pass of the *entire* training dataset through the neural network.\n**Batch Size:** The number of training examples utilized in one iteration to compute the gradients and update the weights."
       },
       {
         "q": "Name two common loss functions used in Deep Learning.",
@@ -282,19 +282,19 @@ export const tutorData = [
       },
       {
         "q": "Explain various regularization techniques used in Deep Learning: L1, L2, and Dropout. Explain in which case you would use L1 regularization over L2 regularization.",
-        "a": "**Answer:** Regularization prevents overfitting (where the model memorizes training data but fails on new data).\\n**L1 (Lasso):** Adds the absolute value of weights to the loss. It drives less important weights exactly to zero, creating **sparse** models. Use it for feature selection.\\n**L2 (Ridge):** Adds the squared value of weights. It penalizes large weights, spreading the impact across all features.\\n**Dropout:** Randomly ignores a percentage of neurons during each training step, forcing the network to learn robust, redundant representations."
+        "a": "**Answer:** Regularization prevents overfitting (where the model memorizes training data but fails on new data).\n**L1 (Lasso):** Adds the absolute value of weights to the loss. It drives less important weights exactly to zero, creating **sparse** models. Use it for feature selection.\n**L2 (Ridge):** Adds the squared value of weights. It penalizes large weights, spreading the impact across all features.\n**Dropout:** Randomly ignores a percentage of neurons during each training step, forcing the network to learn robust, redundant representations."
       },
       {
         "q": "What is Batch Normalization? Explain the mathematical operations involved during the forward pass.",
-        "a": "**Answer:** Batch Normalization standardizes the inputs to a layer for each mini-batch. It accelerates training, allows higher learning rates, and reduces sensitivity to network initialization.\\n**Operations:**\\n1. Compute the batch mean $\\mu$.\\n2. Compute the batch variance $\\sigma^2$.\\n3. Normalize the input: $\\hat{x}_i = \\frac{x_i - \\mu}{\\sqrt{\\sigma^2 + \\epsilon}}$.\\n4. Scale and shift: $y_i = \\gamma \\hat{x}_i + \\beta$, where $\\gamma$ and $\\beta$ are learnable parameters."
+        "a": "**Answer:** Batch Normalization standardizes the inputs to a layer for each mini-batch. It accelerates training, allows higher learning rates, and reduces sensitivity to network initialization.\n**Operations:**\n1. Compute the batch mean $\\mu$.\n2. Compute the batch variance $\\sigma^2$.\n3. Normalize the input: $\\hat{x}_i = \\frac{x_i - \\mu}{\\sqrt{\\sigma^2 + \\epsilon}}$.\n4. Scale and shift: $y_i = \\gamma \\hat{x}_i + \\beta$, where $\\gamma$ and $\\beta$ are learnable parameters."
       },
       {
         "q": "Discuss different optimization algorithms: Momentum, RMSprop, and Adam. Compare their update rules and explain the advantages of Adam.",
-        "a": "**Answer:**\\n**Momentum:** Adds a fraction of the previous update to the current one, helping to accelerate GD in the relevant direction and dampening oscillations.\\n**RMSprop:** Divides the learning rate by an exponentially decaying average of squared gradients. It adapts the learning rate for each parameter.\\n**Adam (Adaptive Moment Estimation):** Combines both Momentum (first moment) and RMSprop (second moment). It computes adaptive learning rates for each parameter.\\n**Advantage:** Adam is highly robust, works well out-of-the-box, and requires little tuning of the initial learning rate."
+        "a": "**Answer:**\n**Momentum:** Adds a fraction of the previous update to the current one, helping to accelerate GD in the relevant direction and dampening oscillations.\n**RMSprop:** Divides the learning rate by an exponentially decaying average of squared gradients. It adapts the learning rate for each parameter.\n**Adam (Adaptive Moment Estimation):** Combines both Momentum (first moment) and RMSprop (second moment). It computes adaptive learning rates for each parameter.\n**Advantage:** Adam is highly robust, works well out-of-the-box, and requires little tuning of the initial learning rate."
       },
       {
         "q": "Why is empirical risk minimization prone to overfitting? What is underfitting?",
-        "a": "**Answer:** **Overfitting:** Empirical risk minimization just minimizes error on the *training set*. Without regularization, a highly complex model will perfectly memorize the training noise, failing to generalize.\\n**Underfitting:** When the model is too simple (or training is too short) and it fails to capture the underlying pattern of the data, resulting in high error on both training and test sets."
+        "a": "**Answer:** **Overfitting:** Empirical risk minimization just minimizes error on the *training set*. Without regularization, a highly complex model will perfectly memorize the training noise, failing to generalize.\n**Underfitting:** When the model is too simple (or training is too short) and it fails to capture the underlying pattern of the data, resulting in high error on both training and test sets."
       },
       {
         "q": "We cannot use mean squared error loss function in binary classification problem for ANN. True or False?",
@@ -401,15 +401,15 @@ export const tutorData = [
       },
       {
         "q": "What is Pooling? What is Max Pooling? What is Average pooling? Show two examples",
-        "a": "**Answer:**\\n**Pooling:** A downsampling operation.\\n**Max Pooling:** Selects the maximum value from the region covered by the filter. (e.g., from a 2x2 patch [1,3; 2,4], max is 4).\\n**Average Pooling:** Calculates the average of the values in the region. (e.g., from [1,3; 2,4], average is 2.5)."
+        "a": "**Answer:**\n**Pooling:** A downsampling operation.\n**Max Pooling:** Selects the maximum value from the region covered by the filter. (e.g., from a 2x2 patch [1,3; 2,4], max is 4).\n**Average Pooling:** Calculates the average of the values in the region. (e.g., from [1,3; 2,4], average is 2.5)."
       },
       {
         "q": "Discuss the role of padding and stride in convolutional neural networks.",
-        "a": "**Answer:**\\n**Padding:** Adding extra border pixels (usually zeros) to the input image so the filter can process edge pixels, preserving spatial dimensions.\\n**Stride:** The number of pixels the filter shifts over the input matrix. A higher stride leads to a smaller output size."
+        "a": "**Answer:**\n**Padding:** Adding extra border pixels (usually zeros) to the input image so the filter can process edge pixels, preserving spatial dimensions.\n**Stride:** The number of pixels the filter shifts over the input matrix. A higher stride leads to a smaller output size."
       },
       {
         "q": "Describe the detailed architecture of a Convolutional Neural Network (CNN) for image classification.",
-        "a": "**Answer:** A standard CNN consists of:\\n1. **Input Layer:** Raw image pixels (e.g., 224x224x3).\\n2. **Convolutional Layers:** Apply filters to extract feature maps. Use ReLU activation.\\n3. **Pooling Layers:** Reduce spatial size (e.g., Max Pooling).\\n4. **Fully Connected (Dense) Layers:** Flatten the output and map features to specific classes.\\n5. **Output Layer:** Softmax activation for class probabilities."
+        "a": "**Answer:** A standard CNN consists of:\n1. **Input Layer:** Raw image pixels (e.g., 224x224x3).\n2. **Convolutional Layers:** Apply filters to extract feature maps. Use ReLU activation.\n3. **Pooling Layers:** Reduce spatial size (e.g., Max Pooling).\n4. **Fully Connected (Dense) Layers:** Flatten the output and map features to specific classes.\n5. **Output Layer:** Softmax activation for class probabilities."
       },
       {
         "q": "Define a 'kernel' in the context of CNNs.",
@@ -417,11 +417,11 @@ export const tutorData = [
       },
       {
         "q": "What is the dimension of the output if a 3x3 filter is applied to a 5x5 input image without padding?",
-        "a": "**Answer:** The formula is (N - F) / Stride + 1. Here N=5, F=3, Stride=1 (default). \\nOutput Dimension = (5 - 3) / 1 + 1 = 3. So the output is a **3x3** matrix."
+        "a": "**Answer:** The formula is (N - F) / Stride + 1. Here N=5, F=3, Stride=1 (default). \nOutput Dimension = (5 - 3) / 1 + 1 = 3. So the output is a **3x3** matrix."
       },
       {
         "q": "Design a CNN architecture for classifying handwritten digits (like MNIST). Clearly mention the number of layers, types of layers, filter sizes, and activation functions used at each step.",
-        "a": "**Answer:** **LeNet-5 style architecture:**\\n- **Input:** 28x28x1 Grayscale Image\\n- **Layer 1:** Conv2D (32 filters, 3x3), Activation: ReLU\\n- **Layer 2:** MaxPooling (2x2 filter, stride 2)\\n- **Layer 3:** Conv2D (64 filters, 3x3), Activation: ReLU\\n- **Layer 4:** MaxPooling (2x2 filter, stride 2)\\n- **Layer 5:** Flatten into 1D vector\\n- **Layer 6:** Dense (Fully Connected) with 128 neurons, Activation: ReLU\\n- **Output Layer:** Dense with 10 neurons, Activation: Softmax."
+        "a": "**Answer:** **LeNet-5 style architecture:**\n- **Input:** 28x28x1 Grayscale Image\n- **Layer 1:** Conv2D (32 filters, 3x3), Activation: ReLU\n- **Layer 2:** MaxPooling (2x2 filter, stride 2)\n- **Layer 3:** Conv2D (64 filters, 3x3), Activation: ReLU\n- **Layer 4:** MaxPooling (2x2 filter, stride 2)\n- **Layer 5:** Flatten into 1D vector\n- **Layer 6:** Dense (Fully Connected) with 128 neurons, Activation: ReLU\n- **Output Layer:** Dense with 10 neurons, Activation: Softmax."
       },
       {
         "q": "Define 'receptive field' in the context of CNN.",
@@ -445,7 +445,7 @@ export const tutorData = [
       },
       {
         "q": "Discuss the use of Deep Learning in Medical Image Analysis. Explain how you would design a system to detect plant diseases from images using a CNN.",
-        "a": "**Answer:** **Medical Image Analysis:** Deep learning (CNNs) is used for detecting tumors in MRIs, analyzing X-rays, and diagnosing diseases (e.g., Diabetic Retinopathy).\\n**Plant Disease CNN Design:**\\n1. **Data Collection:** Gather a labeled dataset of healthy and diseased plant leaves.\\n2. **Preprocessing:** Resize images, normalize pixel values, and apply Data Augmentation.\\n3. **Architecture:** Use a pre-trained model (like ResNet) via Transfer Learning or build a custom CNN with Conv2D -> ReLU -> MaxPool layers.\\n4. **Classification:** Add Fully Connected layers ending with Softmax to predict the specific disease class."
+        "a": "**Answer:** **Medical Image Analysis:** Deep learning (CNNs) is used for detecting tumors in MRIs, analyzing X-rays, and diagnosing diseases (e.g., Diabetic Retinopathy).\n**Plant Disease CNN Design:**\n1. **Data Collection:** Gather a labeled dataset of healthy and diseased plant leaves.\n2. **Preprocessing:** Resize images, normalize pixel values, and apply Data Augmentation.\n3. **Architecture:** Use a pre-trained model (like ResNet) via Transfer Learning or build a custom CNN with Conv2D -> ReLU -> MaxPool layers.\n4. **Classification:** Add Fully Connected layers ending with Softmax to predict the specific disease class."
       },
       {
         "q": "Stride and number of filters are treated as hyperparameters True or False?",
@@ -560,7 +560,7 @@ export const tutorData = [
       },
       {
         "q": "What is the Vanishing Gradient Problem? How does Long Short-Term Memory (LSTM) solve this problem? Explain the architecture of an LSTM cell with the help of a block diagram.",
-        "a": "**Answer:** **Vanishing Gradient:** Gradients shrink to zero during backpropagation in deep networks/RNNs, halting learning for long-term dependencies.\\n**How LSTM Solves It:** LSTMs introduce a 'Cell State' (a direct conveyor belt of information) and 'Gates' (Forget, Input, Output) that regulate information flow, allowing gradients to flow unchanged.\\n**Architecture:**\\n1. **Forget Gate:** Decides what past info to discard.\\n2. **Input Gate:** Decides what new info to add to the cell state.\\n3. **Cell State Update:** Combines the past state and new input.\\n4. **Output Gate:** Decides what the next hidden state should be."
+        "a": "**Answer:** **Vanishing Gradient:** Gradients shrink to zero during backpropagation in deep networks/RNNs, halting learning for long-term dependencies.\n**How LSTM Solves It:** LSTMs introduce a 'Cell State' (a direct conveyor belt of information) and 'Gates' (Forget, Input, Output) that regulate information flow, allowing gradients to flow unchanged.\n**Architecture:**\n1. **Forget Gate:** Decides what past info to discard.\n2. **Input Gate:** Decides what new info to add to the cell state.\n3. **Cell State Update:** Combines the past state and new input.\n4. **Output Gate:** Decides what the next hidden state should be."
       },
       {
         "q": "Does RNN have memory cell? Justify.",
@@ -568,7 +568,7 @@ export const tutorData = [
       },
       {
         "q": "What is a Gated Recurrent Unit (GRU)? Detail the working mechanism of a GRU cell. How does it compare to an LSTM cell?",
-        "a": "**Answer:** A GRU is a simplified version of an LSTM. It combines the forget and input gates into a single 'Update Gate', and merges the cell state and hidden state.\\n**Working:** It has two gates: Reset Gate (determines how much past info to keep) and Update Gate (determines how much new info to add).\\n**Comparison:** GRUs have fewer parameters, train faster, and require less memory than LSTMs, but perform similarly well on many sequence tasks."
+        "a": "**Answer:** A GRU is a simplified version of an LSTM. It combines the forget and input gates into a single 'Update Gate', and merges the cell state and hidden state.\n**Working:** It has two gates: Reset Gate (determines how much past info to keep) and Update Gate (determines how much new info to add).\n**Comparison:** GRUs have fewer parameters, train faster, and require less memory than LSTMs, but perform similarly well on many sequence tasks."
       },
       {
         "q": "Discuss the mathematical foundation of Backpropagation through time (BPTT) for training RNNs.",
@@ -576,7 +576,7 @@ export const tutorData = [
       },
       {
         "q": "Name the algorithm used for parameter learning in Hidden Markov Models. Which algorithm is used for likelihood computation in HMM?",
-        "a": "**Answer:** \\n- **Parameter Learning:** Baum-Welch Algorithm (an Expectation-Maximization method).\\n- **Likelihood Computation:** Forward-Backward Algorithm."
+        "a": "**Answer:** \n- **Parameter Learning:** Baum-Welch Algorithm (an Expectation-Maximization method).\n- **Likelihood Computation:** Forward-Backward Algorithm."
       },
       {
         "q": "Viterbi Algorithm is used for decoding i.e. to find hidden sequence. True or False?",
@@ -584,11 +584,11 @@ export const tutorData = [
       },
       {
         "q": "Write down the equations for forward propagation in a simple RNN.",
-        "a": "**Answer:**\\n1. **Hidden State Update:** $h_t = \\tanh(W_{hh}h_{t-1} + W_{xh}x_t + b_h)$\\n2. **Output:** $y_t = W_{hy}h_t + b_y$\\n(Where $W$ are weight matrices, $x_t$ is input, $h_t$ is hidden state, and $b$ are biases)."
+        "a": "**Answer:**\n1. **Hidden State Update:** $h_t = \\tanh(W_{hh}h_{t-1} + W_{xh}x_t + b_h)$\n2. **Output:** $y_t = W_{hy}h_t + b_y$\n(Where $W$ are weight matrices, $x_t$ is input, $h_t$ is hidden state, and $b$ are biases)."
       },
       {
         "q": "Explain Sequence-to-Sequence (Seq2Seq) models. How do they utilize Encoder-Decoder architecture? Discuss the problem with standard Seq2Seq models for long sentences and how the Attention mechanism resolves it.",
-        "a": "**Answer:** **Seq2Seq:** Models that map an input sequence to an output sequence (e.g., translation).\\n**Architecture:** An **Encoder** RNN processes the input and compresses it into a single fixed-length context vector. A **Decoder** RNN uses this vector to generate the output sequence.\\n**Problem:** Compressing a long sentence into a single vector causes information bottleneck/loss.\\n**Attention Mechanism:** Attention solves this by allowing the decoder to 'look back' at ALL encoder hidden states at each step, dynamically weighting (paying attention to) the most relevant input words for the current output word."
+        "a": "**Answer:** **Seq2Seq:** Models that map an input sequence to an output sequence (e.g., translation).\n**Architecture:** An **Encoder** RNN processes the input and compresses it into a single fixed-length context vector. A **Decoder** RNN uses this vector to generate the output sequence.\n**Problem:** Compressing a long sentence into a single vector causes information bottleneck/loss.\n**Attention Mechanism:** Attention solves this by allowing the decoder to 'look back' at ALL encoder hidden states at each step, dynamically weighting (paying attention to) the most relevant input words for the current output word."
       }
     ],
     "quiz": [
@@ -683,15 +683,15 @@ export const tutorData = [
     "examQuestions": [
       {
         "q": "What is the difference between Generative and Discriminative models with examples?",
-        "a": "**Answer:**\\n**Discriminative Models:** Learn the boundary between classes. They model the conditional probability $P(Y|X)$. (e.g., Logistic Regression, standard CNNs for image classification. Output: 'Is this a cat or dog?').\\n**Generative Models:** Learn the actual distribution of the data classes. They model the joint probability $P(X,Y)$. (e.g., Naive Bayes, GANs, Variational Autoencoders. Output: 'Draw me a picture of a cat.')."
+        "a": "**Answer:**\n**Discriminative Models:** Learn the boundary between classes. They model the conditional probability $P(Y|X)$. (e.g., Logistic Regression, standard CNNs for image classification. Output: 'Is this a cat or dog?').\n**Generative Models:** Learn the actual distribution of the data classes. They model the joint probability $P(X,Y)$. (e.g., Naive Bayes, GANs, Variational Autoencoders. Output: 'Draw me a picture of a cat.')."
       },
       {
         "q": "What are Autoencoders? Describe the concept of Denoising Autoencoders. How do Autoencoders work? Draw a simple architecture.",
-        "a": "**Answer:** An Autoencoder is an unsupervised neural network that learns to compress data into a lower-dimensional representation (latent space/bottleneck) and then reconstruct the original data from it.\\n**Architecture:** `Input -> Encoder -> Bottleneck (Latent Space) -> Decoder -> Reconstructed Output`.\\n**Denoising Autoencoder:** The model is given a corrupted/noisy version of the input and must learn to reconstruct the clean, original input. This forces the model to learn robust features rather than just memorizing the data."
+        "a": "**Answer:** An Autoencoder is an unsupervised neural network that learns to compress data into a lower-dimensional representation (latent space/bottleneck) and then reconstruct the original data from it.\n**Architecture:** `Input -> Encoder -> Bottleneck (Latent Space) -> Decoder -> Reconstructed Output`.\n**Denoising Autoencoder:** The model is given a corrupted/noisy version of the input and must learn to reconstruct the clean, original input. This forces the model to learn robust features rather than just memorizing the data."
       },
       {
         "q": "Write short notes on Generative Adversarial Networks (GANs). Explain the mathematical intuition behind the GAN loss function.",
-        "a": "**Answer:** A GAN consists of two neural networks playing a zero-sum game: a **Generator** (tries to create fake data that looks real) and a **Discriminator** (tries to distinguish real data from fake data).\\n**Mathematical Intuition:** It's a minimax game. The Discriminator maximizes the probability of assigning correct labels to real/fake images. The Generator minimizes the Discriminator's success rate ($min_G \\max_D V(D,G)$). When trained perfectly, the Generator produces indistinguishable fakes, and the Discriminator's accuracy becomes 50% (random guess)."
+        "a": "**Answer:** A GAN consists of two neural networks playing a zero-sum game: a **Generator** (tries to create fake data that looks real) and a **Discriminator** (tries to distinguish real data from fake data).\n**Mathematical Intuition:** It's a minimax game. The Discriminator maximizes the probability of assigning correct labels to real/fake images. The Generator minimizes the Discriminator's success rate ($min_G \\max_D V(D,G)$). When trained perfectly, the Generator produces indistinguishable fakes, and the Discriminator's accuracy becomes 50% (random guess)."
       },
       {
         "q": "What is Natural Language Processing (NLP)? What is the purpose of NLP?",
@@ -699,15 +699,15 @@ export const tutorData = [
       },
       {
         "q": "What are the common steps involved in text preprocessing for NLP? Explain stop word removal and stemming. What is tokenisation?",
-        "a": "**Answer:**\\n1. **Tokenization:** Splitting text into smaller units (words, subwords, or sentences).\\n2. **Lowercasing:** Converting all text to lowercase for uniformity.\\n3. **Stop Word Removal:** Removing common, low-meaning words (e.g., 'the', 'is', 'in') to reduce noise and computation.\\n4. **Stemming/Lemmatization:** Stemming chops off word endings to get a root (e.g., 'running' -> 'run', but might yield non-words). Lemmatization uses a dictionary to return the proper base word (e.g., 'better' -> 'good')."
+        "a": "**Answer:**\n1. **Tokenization:** Splitting text into smaller units (words, subwords, or sentences).\n2. **Lowercasing:** Converting all text to lowercase for uniformity.\n3. **Stop Word Removal:** Removing common, low-meaning words (e.g., 'the', 'is', 'in') to reduce noise and computation.\n4. **Stemming/Lemmatization:** Stemming chops off word endings to get a root (e.g., 'running' -> 'run', but might yield non-words). Lemmatization uses a dictionary to return the proper base word (e.g., 'better' -> 'good')."
       },
       {
         "q": "Describe the Word2Vec model. Explain the CBOW and Skip-gram architectures briefly.",
-        "a": "**Answer:** Word2Vec is an algorithm that uses a neural network to learn word embeddings (dense vector representations) from a large corpus of text, capturing semantic meaning.\\n**CBOW (Continuous Bag of Words):** Predicts a target word based on its surrounding context words.\\n**Skip-gram:** Predicts the surrounding context words given a single target word. (Better for infrequent words)."
+        "a": "**Answer:** Word2Vec is an algorithm that uses a neural network to learn word embeddings (dense vector representations) from a large corpus of text, capturing semantic meaning.\n**CBOW (Continuous Bag of Words):** Predicts a target word based on its surrounding context words.\n**Skip-gram:** Predicts the surrounding context words given a single target word. (Better for infrequent words)."
       },
       {
         "q": "Write a detailed note on Transformer architecture. How does self-attention replace recurrence?",
-        "a": "**Answer:** The Transformer architecture dispenses entirely with recurrence (RNNs) and convolutions, relying solely on **Attention Mechanisms**.\\n**Self-Attention:** Instead of processing words sequentially, self-attention computes the relationship (attention scores) between ALL words in a sentence simultaneously. It allows the model to instantly see how 'bank' relates to 'river' vs. 'money' in the same sentence, regardless of distance, solving the long-term dependency problem of RNNs and enabling massive parallelization."
+        "a": "**Answer:** The Transformer architecture dispenses entirely with recurrence (RNNs) and convolutions, relying solely on **Attention Mechanisms**.\n**Self-Attention:** Instead of processing words sequentially, self-attention computes the relationship (attention scores) between ALL words in a sentence simultaneously. It allows the model to instantly see how 'bank' relates to 'river' vs. 'money' in the same sentence, regardless of distance, solving the long-term dependency problem of RNNs and enabling massive parallelization."
       },
       {
         "q": "What is the significance of the BLEU score?",
